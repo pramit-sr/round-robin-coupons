@@ -34,40 +34,40 @@ function App() {
 
   // Claim a Coupon
   const claimCoupon = async () => {
-  if (!enteredCoupon) {
-    setClaimError("⚠ Please enter a coupon code.");
-    return;
-  }
-
-  try {
-    const response = await axios.post(
-      `${API_BASE_URL}/claim`,
-      { code: enteredCoupon },  // ✅ Send entered coupon
-      { withCredentials: true } // ✅ Ensure cookies are sent
-    );
-
-    if (!response || !response.data) {
-      throw new Error("Invalid response from server");
+    if (!enteredCoupon) {
+      setClaimError("⚠ Please enter a coupon code.");
+      return;
     }
-
-    console.log("✅ Coupon Claimed:", response.data);
-    setClaimedCoupon(response.data.coupon);
-    setClaimError(""); // Clear previous errors
-  } catch (error) {
-    console.error("❌ Error Claiming Coupon:", error);
-
-    if (error.response) {
-      console.error("🚨 Server Response Error:", error.response.status, error.response.data);
-    } else if (error.request) {
-      console.error("⚠ No response received from server.");
-    } else {
-      console.error("🔴 Request error:", error.message);
+  
+    try {
+      const response = await axios.post(
+        ${API_BASE_URL}/claim,
+        { code: enteredCoupon },  // ✅ Send entered coupon
+        { withCredentials: true } // ✅ Ensure cookies are sent
+      );
+  
+      if (!response || !response.data) {
+        throw new Error("Invalid response from server");
+      }
+  
+      console.log("✅ Coupon Claimed:", response.data);
+      setClaimedCoupon(response.data.coupon);
+      setClaimError(""); // Clear previous errors
+    } catch (error) {
+      console.error("❌ Error Claiming Coupon:", error);
+  
+      if (error.response) {
+        console.error("🚨 Server Response Error:", error.response.status, error.response.data);
+      } else if (error.request) {
+        console.error("⚠ No response received from server.");
+      } else {
+        console.error("🔴 Request error:", error.message);
+      }
+  
+      setClaimError(error.response?.data?.message || "Error claiming coupon");
     }
-
-    setClaimError(error.response?.data?.message || "Error claiming coupon");
-  }
-};
-
+  };
+  
 
   return (
     <div>
