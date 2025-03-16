@@ -17,7 +17,7 @@ function App() {
   const fetchCoupon = async () => {
     try {
       const response = await axios.get(API_BASE_URL);
-      console.log("✅ API Response:", response.data);
+      console.log(" API Response:", response.data);
 
       if (response.data.message === "No coupons available") {
         setNoCoupons(true);
@@ -41,12 +41,12 @@ function App() {
 
     try {
       const response = await axios.post(`${API_BASE_URL}/claim`, { code: enteredCoupon }, { withCredentials: true });
-      console.log("✅ Coupon Claimed:", response.data);
+      console.log("Coupon Claimed:", response.data);
 
       setClaimedCoupon(response.data.coupon);
       setClaimError("");
     } catch (error) {
-      console.error("❌ Error Claiming Coupon:", error);
+      console.error("Error Claiming Coupon:", error);
       setClaimError(error.response?.data?.message || "Error claiming coupon");
     }
   };
@@ -62,9 +62,9 @@ function App() {
         fetchCoupon={fetchCoupon}
         claimCoupon={claimCoupon}
         claimedCoupon={claimedCoupon}
-        setClaimedCoupon={setClaimedCoupon}  // ✅ Pass the state updater
+        setClaimedCoupon={setClaimedCoupon}  // Pass the state updater
         claimError={claimError}
-        setClaimError={setClaimError}  // ✅ Pass the state updater
+        setClaimError={setClaimError}  // Pass the state updater
       />
     </div>
   );

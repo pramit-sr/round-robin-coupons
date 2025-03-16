@@ -2,7 +2,7 @@ const CLAIM_TIME_LIMIT = 60 * 60 * 1000; // 1-hour restriction
 const claimedIPs = {}; // Stores IPs and claim timestamps
 
 export const checkIPAbuse = (req, res, next) => {
-  const userIP = req.headers["x-forwarded-for"] || req.socket.remoteAddress; // Get user's IP
+  const userIP = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
   console.log(`User IP: ${userIP}`);
 
   if (!userIP) {

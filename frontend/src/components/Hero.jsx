@@ -2,11 +2,11 @@ import React from "react";
 import "./Hero.css";
 
 function Hero({ availableCoupon, noCoupons, enteredCoupon, setEnteredCoupon, fetchCoupon, claimCoupon, claimedCoupon, setClaimedCoupon, claimError, setClaimError }) {
-  // ✅ New function to handle claiming logic
+  //  New function to handle claiming logic
   const handleClaimCoupon = async () => {
-    setClaimedCoupon("");  // ✅ Remove previous claimed message
-    setClaimError("");  // ✅ Clear previous errors
-    await claimCoupon();  // ✅ Call the actual claim function
+    setClaimedCoupon("");  // Remove previous claimed message
+    setClaimError("");  // Clear previous errors
+    await claimCoupon();  // Call the actual claim function
   };
 
   return (
@@ -24,7 +24,7 @@ function Hero({ availableCoupon, noCoupons, enteredCoupon, setEnteredCoupon, fet
         </div>
       </div>
 
-      {/* ✅ Coupon Claiming Section inside hero-image div */}
+      {/* Coupon Claiming Section inside hero-image div */}
       <div className="hero-image">
         <div className="coupon-section">
           <h2>Claim Your Coupon</h2>
@@ -45,7 +45,7 @@ function Hero({ availableCoupon, noCoupons, enteredCoupon, setEnteredCoupon, fet
             <button onClick={handleClaimCoupon} style={{ marginLeft: "10px" }}>Claim Coupon</button>
           </div>
 
-          {/* ✅ Show the appropriate message based on state */}
+          {/* Show the appropriate message based on state */}
           {claimError ? (
             <h3 style={{ color: "red" }}>{claimError}</h3>
           ) : (
