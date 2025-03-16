@@ -20,7 +20,14 @@ function Hero({ availableCoupon, noCoupons, enteredCoupon, setEnteredCoupon, fet
         </p>
 
         <div className="hero-btn">
-          <button className="primary-btn">Know More</button>
+        <button className="primary-btn">
+          <a href="https://www.linkedin.com/company/thesalesstudio/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            style={{ color: "white", textDecoration: "none" }}>
+            Know More
+          </a>
+        </button>
         </div>
       </div>
 
