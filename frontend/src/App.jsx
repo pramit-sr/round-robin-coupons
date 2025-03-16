@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import "./App.css";
 
-const API_BASE_URL = "https://round-robin-coupons-backend.onrender.com/api/coupons";
+const API_BASE_URL = "https://round-robin-coupons-wnc7.onrender.com/api/coupons";
 
 function App() {
   const [availableCoupon, setAvailableCoupon] = useState("");
