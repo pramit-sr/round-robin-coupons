@@ -1,6 +1,6 @@
 export const claimCoupon = async () => {
     try {
-      const response = await fetch("http://localhost:5002/api/coupons/claim", {  // ✅ Update to match your backend port
+      const response = await fetch("https://round-robin-coupons-backend.onrender.com/api/coupons/claim", {  // ✅ Update to match your backend port
         method: "POST",
         credentials: "include", // ✅ Important for cookies
         headers: {
