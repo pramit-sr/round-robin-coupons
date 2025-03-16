@@ -41,7 +41,7 @@ function App() {
   
     try {
       const response = await axios.post(
-        ${API_BASE_URL}/claim,
+        `${API_BASE_URL}/claim`,
         { code: enteredCoupon },  // ✅ Send entered coupon
         { withCredentials: true } // ✅ Ensure cookies are sent
       );
