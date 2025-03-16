@@ -55,3 +55,4 @@ function Hero({ availableCoupon, noCoupons, enteredCoupon, setEnteredCoupon, fet
 }
 
 export default Hero;
+.
