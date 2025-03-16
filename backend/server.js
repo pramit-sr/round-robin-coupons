@@ -8,7 +8,11 @@ import { checkCookieAbuse } from "./cookieTracking.js";  // Cookie tracking
 const app = express();
 const PORT = 5001;
 
-app.use(cors({ origin: "https://round-robin-coupons-lyart.vercel.app/", credentials: true }));
+app.use(cors({
+  origin: ["https://round-robin-coupons-lyart.vercel.app"], // ✅ No trailing slash
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -44,7 +48,7 @@ app.post("/api/coupons/claim", checkIPAbuse, checkCookieAbuse, (req, res) => {
   //  Store the claim in cookies (valid for 1 hour)
   res.cookie("claimedCoupon", code, { maxAge: CLAIM_TIME_LIMIT, httpOnly: true });
 
-  console.log(`✅ Coupon claimed: ${code}`);
+  console.log(`Coupon claimed: ${code}`);
   res.json({ coupon: code });
 });
 

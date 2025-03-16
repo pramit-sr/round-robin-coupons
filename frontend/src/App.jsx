@@ -16,7 +16,7 @@ function App() {
   // Fetch an Available Coupon
   const fetchCoupon = async () => {
     try {
-      const response = await axios.get(API_BASE_URL);
+      const response = await axios.get(API_BASE_URL, { withCredentials: true });
       console.log("API Response:", response.data);
 
       if (response.data.message === "No coupons available") {
@@ -62,9 +62,7 @@ function App() {
         fetchCoupon={fetchCoupon}
         claimCoupon={claimCoupon}
         claimedCoupon={claimedCoupon}
-        setClaimedCoupon={setClaimedCoupon}
         claimError={claimError}
-        setClaimError={setClaimError}
       />
     </div>
   );
