@@ -8,7 +8,7 @@ import { checkCookieAbuse } from "./cookieTracking.js";  // Cookie tracking
 const app = express();
 const PORT = 5001;
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "https://round-robin-coupons-lyart.vercel.app/", credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 
